@@ -1,0 +1,2 @@
+If were to create streaks, could probably be done by using DateTime library
+TTS could be implemented either by using chat-gpt or by other TTS APIs

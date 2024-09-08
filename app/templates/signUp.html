@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Create an Account{% endblock %}
+
+
+{% block content %}
+<form method = 'POST' action = "{{ url_for('routes.signUp') }}">
+   
+   <h1>Create an Account</h1>
+   <div class = 'form-group'>
+       <!-- boostrap class -->
+       <input type = 'text' id = 'email' name = 'email' placeholder = 'Email'>
+       <br>
+       <input type = 'text' id = 'username' name = 'username' placeholder = 'Username'>
+       <br>
+       <input type = 'password' id = 'password' name = 'password' placeholder = 'Password'>
+       <br>
+       <input type = 'password' id = 'confirmPassword' name = 'confirmPassword' placeholder = 'Confirm Password'>
+       <br>
+       <button type = 'submit'><b>Create an Account</b></button>
+       <br>
+       <p>Got an account? <a href = 'login'>Login</a></p>
+   </div>
+
+</form>
+{% endblock %}

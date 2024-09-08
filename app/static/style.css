@@ -1,0 +1,216 @@
+/* Font face for all elements */
+@font-face {
+   font-family: 'Nunito';
+   src: url(Nunito-VariableFont_wght.ttf);
+}
+
+/* Global Styles */
+* {
+   font-family: 'Nunito';
+   box-sizing: border-box;
+}
+
+body.custom-background {
+   background-color: #131F24 !important;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+}
+
+/* Container adjustment */
+.container-fluid {
+   padding: 0 15px;
+   /* Add padding to the container for symmetry */
+}
+
+.col-md-3 {
+   padding-right: 15px; 
+   padding-left: 15px;  
+}
+
+.col-md-6 {
+   padding-right: 15px; 
+   padding-left: 15px;  
+}
+
+/* Ensure columns do not overflow */
+.row {
+   margin-right: -15px;
+   margin-left: -15px; 
+}
+
+/* Navbar styling */
+.navbar-container {
+   display: block;
+   width: 350px;
+   flex-direction: column;
+   align-items: flex-start;
+   height: 100vh;
+   padding-top: 53px;
+   padding-left: 15px;
+   background-color: inherit;
+   border-right: 2px solid #37464F;
+}
+
+.navbar ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.navbar ul li {
+   margin-left: 0;
+}
+
+.navbar ul li a {
+   color: #C1CBD1;
+   text-decoration: none;
+   font-size: 30px;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+   padding: 0;
+   margin-left: 0;
+}
+
+.navbar ul li a:hover {
+   color: #49BFF7;
+   text-decoration: none;
+}
+
+.navbar ul li a i {
+   margin-right: 10px;
+   /* Needed to add some space between the text and icons */
+}
+
+.navbarTitle {
+   color: #4FB607;
+   font-weight: 900;
+   margin: 0 0 53px;
+   padding-left: 0;
+   display: block;
+}
+
+/* Middle column styling */
+.middle-col {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   min-height: 100vh;
+}
+
+/* Right column styling */
+.right-bar {
+   overflow-x: hidden;
+   /* Prevents horizontal overflow */
+}
+
+.top-right-bar, .leaderboard-box, .daily-quests {
+   width: 100%; /* Ensure full width of the column */
+}
+
+.custom-card {
+   margin-top: 53px;
+   width: 584px;
+   height: 82px;
+   align-items: center;
+   background-color: #FF4B4B !important;
+}
+
+.custom-card-header {
+   color: #FFF;
+   font-weight: 700;
+   font-size: 30px;
+}
+
+.german-flag {
+   height: 50px;
+   width: 50px;
+   margin-right: 70px;
+}
+
+.top-right-bar {
+   margin-top: 53px;
+}
+
+.progress-bar {
+   height: 50px;
+   background-color: #202F35;
+   border-color: #37464F;
+   width: 336px;
+}
+
+.progress-bar .card-body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   padding: 0;
+}
+
+/* Style for the leaderboard-box and daily-quests */
+.leaderboard-box, .daily-quests {
+   padding: 20px;
+   border: 2px solid #37464F;
+   border-radius: 8px;
+   background-color: inherit;
+   box-sizing: border-box;
+   margin-top: 100px;
+}
+
+.leaderboard-box{
+   height: 198px;
+}
+
+/* Specific styles for daily-quests */
+.daily-quests {
+   height: 335px;
+}
+
+.leaderboard-box, .daily-quests, .progress-bar{
+   color: #C1CBD1;
+}
+
+.lesson-container{
+   display: flex;
+   flex-direction: column;
+   /* needed this to be set as column, such that the p elements stay below the button */
+   justify-content: center;
+   align-items: center;
+   margin-top: 53px;
+   text-align: center;
+}
+
+.lesson-button{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 115px;
+   height: 115px;
+   border-radius: 100%;
+   background-color: #FF4B4B;
+   border: 10px solid #131F24;
+   box-shadow: 0 0 5px 8px rgba(32, 47, 53, 1);
+   position: static;
+   cursor: pointer;
+}
+
+.pencil-icon{
+   width: 50px;
+   height: 50px;
+   background-image: url('pencil.png');
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.lesson-text{
+   display: block;
+   margin-top: 10px;
+   color: #C1CBD1;
+}

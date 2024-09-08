@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!-- extending from base because the forms are quite similar to login forms -->
+{% block title %}Add Question{% endblock %}
+
+{% block content %}
+<form method = 'POST' action = '{{ url_for("routes.addQuestion") }}'>
+
+    <h1>Add a Question</h1>
+    <div class = 'form-group'>
+        <input type = 'text' id = 'question' name = 'question' placeholder = 'Question'>
+        <br>
+        <input type = 'text' id = 'answer' name = 'answer' placeholder = 'Answer'>
+        <br>
+        <input type = 'text' id = 'questionType' name = 'questionType' placeholder = 'Question Type'>
+        <br>
+        <button type = 'submit'><b>Create Question</b></button>
+    </div>
+
+</form>
+{% endblock %}

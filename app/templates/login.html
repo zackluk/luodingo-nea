@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form method='POST' action="{{ url_for('routes.login') }}">
+
+   <div class='login-container justify-content-center align-items-center full-height mt-5'>
+       <h1 class='login-title text-center mb-2'>Login</h1>
+       <div class='login-card'>
+
+           <div class='login-card-body'>
+        
+            <div class='login-form-group mb-3'>
+                <input type='text' class='login-input form-control' id='login-username' name='username' placeholder='Username'>
+            </div>
+            <div class='login-form-group mb-3'>
+                <input type='password' class='login-input form-control' id='login-password' name='password' placeholder='Password'>
+            </div>
+            <button type='submit' class='login-btn btn w-100 mb-3'><b>Login</b></button>
+
+
+            <div class='login-links-container text-center'>
+                <div class='row'>
+                    <div class='col'>
+                        <p class='login-link-text'>Haven't got an account? <a href='sign-up' class='login-link'>Register</a></p>
+                    </div>
+                    <div class='col'>
+                        <p class='login-link-text'><a href='forgor-password' class='login-link'>Forgor Password?</a></p>
+                    </div>
+                </div>
+            </div>
+           </div>
+
+       </div>
+
+   </div>
+
+</form>
+{% endblock %}
