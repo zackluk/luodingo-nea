@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Message
 from .models import User, Question
-from .validation import *
+from .utils import *
 from . import db, mail
 #using werkzeug because it offers more flexibility and does not limit algorithm to just bcrypt -> it is also usually faster
 #using hashlib would create too much unnecessary work
@@ -182,23 +182,23 @@ def learn():
     
     return render_template('learn.html')
 
-# @routes.route('/lesson/<lessonId>', methods = ['GET', 'POST'])
-# @login_required
-# def lesson(lessonId):
-#     # lesson = Lesson.query.filter_by(lessonId = lessonId).first()
+@routes.route('/lesson', methods = ['GET', 'POST'])
+@login_required
+def lesson():
+    # lesson = Lesson.query.filter_by(lessonId = lessonId).first()
 
-#     # if not lesson:
-#     #     flash('Lesson could not be found... You will be redirected to the learn page.', category = 'error')
-#     #     return redirect(url_for('routes.learn'))
+    # if not lesson:
+    #     flash('Lesson could not be found... You will be redirected to the learn page.', category = 'error')
+    #     return redirect(url_for('routes.learn'))
 
-#     # if request.method == 'POST':
-#     #     #probably need a few if statements to load the first card of the lesson
-#     #     return '<h1> Card </h1>'
+    # if request.method == 'POST':
+    #     #probably need a few if statements to load the first card of the lesson
+    #     return '<h1> Card </h1>'
     
-#     # else:
-#     #     return
+    # else:
+    #     return
     
-#     return '<h1>Question Here!</h1>'
+    return '<h1>Question Here!</h1>'
 
 @routes.route('/add-a-question', methods = ['GET', 'POST'])
 @login_required
@@ -225,3 +225,20 @@ def addQuestion():
         flash('Access restricted... You will be redirected to the learn page.', category = 'error')
         #need to fix this flash message not showing -> shows up only when the user logs out
         return redirect(url_for('routes.learn'))
+    
+@routes.route('/question/<questionId>', methods = ['GET', 'POST'])
+@login_required
+def accessQuestion(questionId):
+    question = Question.query.filter_by(id = questionId).first()
+
+    if request.method == 'POST':
+        answer = request.form.get('answer')
+
+        if answer == question.answer:
+            return True
+        
+        return False
+
+    else:
+        return render_template(f'{question.questionType}.html', question = question)
+        #question types can only be: multiple-choice, fill-in-the-blanks, mouse-navigation, keyboard-input            

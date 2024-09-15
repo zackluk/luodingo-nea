@@ -1,6 +1,7 @@
 from . import db, migrate
 #. refers to current file, aka app
 from flask_login import UserMixin
+from sqlalchemy.dialects.postgresql import JSON
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -18,9 +19,16 @@ class User(db.Model, UserMixin):
         #repr function just to check all the fields of a record
         return f'{self.id} {self.email} {self.username} {self.password} {self.progress}'
     
-# class Lesson(db.Model):
-#     #Renamed deck -> lesson, as I felt that it made more sense
-#     __tablename__ = 'lessons'
+class Lesson(db.Model):
+    #Renamed deck -> lesson, as I felt that it made more sense
+    __tablename__ = 'lessons'
+
+    id = db.Column(db.Integer, primary_key = True)
+    deck = db.Column(JSON, nullable = False)
+    #using a JSON field to store the list, as python lists are not directly supported to be a Python attribute on sqlalchemy
+
+    def __repr__(self):
+        return f'{self.id} {self.deck}'
 
 class Question(db.Model):
     #Renamed card -> question, also just because it is more suitable

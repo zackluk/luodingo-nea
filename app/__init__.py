@@ -45,4 +45,3 @@ def createDatabase(app):
     if not path.exists('app/luodingo.db'):
         with app.app_context():
             db.create_all()
-            print('Created Database')
